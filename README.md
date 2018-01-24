@@ -1,0 +1,3 @@
+# miscllaneous
+
+various technical notes
