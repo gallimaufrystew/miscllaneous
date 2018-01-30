@@ -9,3 +9,4 @@ wanted semantics
 
 2 every time,delete previously building directory and start with a fresh one
 
+3 make sure that the downloading of a list of files are all succeed
