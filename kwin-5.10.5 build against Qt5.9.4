@@ -1,0 +1,38 @@
+
+kwin/cmake/modules/FindQt5EventDispatcherSupport.cmake
+
+QtEventDispatcherSupport/private/qunixeventdispatcher_qpa_p.h ->
+QtEventDispatcherSupport/5.9.4/QtEventDispatcherSupport/private/qunixeventdispatcher_qpa_p.h
+
+
+kwin/cmake/modules/FindQt5FontDatabaseSupport.cmake
+
+QtFontDatabaseSupport/private/qfontconfigdatabase_p.h ->
+QtFontDatabaseSupport/5.9.5/QtFontDatabaseSupport/private/qfontconfigdatabase_p.h
+
+kwin/cmake/modules/FindQt5ThemeSupport.cmake
+
+QtThemeSupport/private/qgenericunixthemes_p.h ->
+
+QtThemeSupport/5.9.5/QtThemeSupport/private/qgenericunixthemes_p.h
+
+
+kwin/plugins/qpa/integration.cpp needs corresponding change
+
+#include <QtCore/private/qeventdispatcher_unix_p.h>
+
+#include <QtFontDatabaseSupport/private/qgenericunixfontdatabase_p.h>
+#include <QtThemeSupport/private/qgenericunixthemes_p.h>
+#include <QtEventDispatcherSupport/private/qunixeventdispatcher_qpa_p.h>
+
+->
+
+#include <QtCore/5.9.5/QtCore/private/qeventdispatcher_unix_p.h>
+
+#include <QtFontDatabaseSupport/5.9.5/QtFontDatabaseSupport/private/qgenericunixfontdatabase_p.h>
+#include <QtThemeSupport/5.9.5/QtThemeSupport/private/qgenericunixthemes_p.h>
+#include <QtEventDispatcherSupport/5.9.5/QtEventDispatcherSupport/private/qunixeventdispatcher_qpa_p.h>
+
+
+
+
