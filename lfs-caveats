@@ -1,0 +1,11 @@
+
+1 with PDF version of Linux From Scratch
+
+a lot of command can't be copy and paste directly
+they are needed to format properly
+
+before executing any command,make sure it is in correct syntax and 
+wanted semantics
+
+2 every time,delete previously building directory and start with a fresh one
+
