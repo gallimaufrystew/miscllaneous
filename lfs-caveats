@@ -1,12 +1,19 @@
 
-1 with PDF version of Linux From Scratch
+1 
+   with PDF version of Linux From Scratch
 
-a lot of command can't be copy and paste directly
-they are needed to format properly
+   a lot of command can't be copy and paste directly
+   they are needed to format properly
 
-before executing any command,make sure it is in correct syntax and 
-wanted semantics
+   before executing any command,make sure it is in correct syntax and 
+   wanted semantics
 
-2 every time,delete previously building directory and start with a fresh one
+2 
+  every time,rename or delete previously used source directory 
+  and start with a fresh one
 
-3 make sure that the downloading of a list of files are all succeed
+3 
+  make sure that the downloading of a list of files are all succeed
+  
+  
+  
