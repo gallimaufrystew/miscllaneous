@@ -1,3 +1,6 @@
 
+Looks like it always tries to build the html docs by default,  but
+that can be disabled with a sed
+
 sed -i "s/all: allhtml/all:/" doc/Makefile.in
 
