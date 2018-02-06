@@ -1,0 +1,44 @@
+
+caveat: 
+   compiling process requires lots of patience,you'd better taking a sleep
+   
+1  with PDF version of Linux From Scratch
+   a lot of command can't be copy and paste directly
+   they are needed to format properly
+   before executing any command,make sure it is in correct syntax and 
+   wanted semantics
+
+2 every time,delete previously used source directory 
+  and start with a fresh one
+
+3 make sure that the downloading of a list of files are all succeed
+
+4 locale supported by kernel,glibc?
+
+5  NIC may rely on firmware to work correctly for example,realtek  8192se
+   wpa_suppliccant collides with tnetwork manager,two wpa_supplicant 
+   process is running after installing networkmanager 
+   disable network-manager
+
+6 after the basic system was ready,rechroot command is different from previously used 
+
+7 In several cases Xlib  expects that the character map will be listed in 
+  uppercase notation with canonical dashes.
+
+  The “C” (default) and “en_US” (the recommended one for United States English users) 
+  locales are different. /* “C” uses the US-ASCII 7-bit character set */, and treats bytes 
+  with the high bit set as invalid characters. That's why, e.g., the ls command 
+  substitutes them with question marks in that locale. Also, an attempt to send 
+  mail with such characters from Mutt or Pine results in non-RFC-conforming messages 
+  being sent (the charset in the outgoing mail is indicated as “unknown 8-bit”). 
+  So you can use the “C” locale only if you are sure that you will never need 8-bit characters.
+
+  *UTF-8 based locales are not supported well by some programs.
+  
+  8 making sure needed drivers are compiled and load successfully
+  
+  9 device management==?
+  
+  10 understanding the linux destktop? xorg <--> desktop
+  
+  
