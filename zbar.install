@@ -1,4 +1,10 @@
 
+pygobject-2.28.6
+
+./configure --disable-introspection
+
+ImageMagick
+
 ln -s /usr/local/include/ImageMagick-7 /usr/local/include/ImageMagick
 ln -s /usr/local/include/ImageMagick-7/MagickWand /usr/local/include/wand
 
