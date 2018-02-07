@@ -15,3 +15,12 @@ ln -s /usr/local/include/ImageMagick-7/MagickWand /usr/local/include/wand
 export QT_CFLAGS=$QT5DIR/include
 export QT_LIBS=$QT5DIR/lib
 ./configure --disable-video
+
+specify QT_CFLAGS QT_LIBS environment variable
+
+add -fPIC compiler option
+
+modify some source files,mainly to correct "cannot find included file"
+
+const QMimeData *data = 
+
