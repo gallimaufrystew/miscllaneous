@@ -1,0 +1,4 @@
+
+bio_new_file ===specify open mode as "wb"
+
+to circumvent linefeeding issues
