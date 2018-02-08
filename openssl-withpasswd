@@ -1,0 +1,25 @@
+
+If you don't use a passphrase, then the private key is not encrypted with any symmetric cipher - it is output completely unprotected.
+
+You can generate a keypair, supplying the password on the command-line using an invocation like (in this case, the password is foobar):
+
+openssl genrsa -aes128 -passout pass:foobar 3072
+However, note that this passphrase could be grabbed by any other process running on the machine at the time, since command-line arguments are generally visible to all processes.
+
+A better alternative is to write the passphrase into a temporary file that is protected with file permissions, and specify that:
+
+openssl genrsa -aes128 -passout file:passphrase.txt 3072
+Or supply the passphrase on standard input:
+
+openssl genrsa -aes128 -passout stdin 3072
+You can also used a named pipe with the file: option, or a file descriptor.
+
+To then obtain the matching public key, you need to use openssl rsa, supplying the same passphrase with the -passin parameter as was used to encrypt the private key:
+
+openssl rsa -passin file:passphrase.txt -pubout
+(This expects the encrypted private key on standard input - you can instead read it from a file using -in <file>).
+
+Example of creating a 3072-bit private and public key pair in files, with the private key pair encrypted with password foobar:
+
+openssl genrsa -aes128 -passout pass:foobar -out privkey.pem 3072
+openssl rsa -in privkey.pem -passin pass:foobar -pubout -out privkey.pub
