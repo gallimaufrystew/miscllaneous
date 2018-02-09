@@ -1,0 +1,2 @@
+
+ar -p google-chrome-stable_current_amd64.deb data.tar.xz | sudo tar Jx -C /
