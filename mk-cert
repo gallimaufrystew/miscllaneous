@@ -1,0 +1,45 @@
+
+REM root certificate
+
+set PASSWD=carestream
+set OPENSSL="openssl"
+set RT_KEY=private\\ca.key.pem
+set RT_CRT=certs\\ca.cert.pem
+set CA_KEY=intermediate\\private\\intermediate.key.pem
+set CA_CSR=intermediate\\csr\\intermediate.csr.pem
+set CA_CRT=intermediate\\certs\\intermediate.cert.pem
+set SVR_KEY=intermediate\\private\\server.key
+set SVR_CSR=intermediate\\csr\\s.csr.pem
+set SVR_CRT=intermediate\\certs\\server.crt
+set DAYS=7300
+set CA_CNF=openssl.cnf
+set INT_CNF=intermediate\\openssl.cnf
+
+set SUBJ="/C=HH/ST=Utopian/L=Shanghai/O=Global Security/OU=IT Department/CN=carestream.com"
+
+%OPENSSL% genrsa -passout pass:%PASSWD% -out %RT_KEY% 2048
+%OPENSSL% req -subj %SUBJ% -passin pass:%PASSWD% -config %CA_CNF% -key %RT_KEY% -new -x509 -days %DAYS% -sha256 -extensions v3_ca -out %RT_CRT%
+
+REM verify it
+REM openssl x509 -noout -text -in certs\\ca.cert.pem
+
+REM intermediate certificate
+
+%OPENSSL% genrsa -passout pass:%PASSWD% -out %CA_KEY% 2048
+%OPENSSL% req -passin pass:%PASSWD% -subj %SUBJ% -config %INT_CNF% -new -sha256 -key    %CA_KEY% -out %CA_CSR%
+%OPENSSL% ca -batch  -config %CA_CNF% -days %DAYS% -notext -md sha256 -in %CA_CSR% -extensions v3_intermediate_ca -out %CA_CRT%
+
+
+REM verify it	 
+REM openssl x509 -noout -text -in intermediate\\certs\\intermediate.cert.pem
+
+
+REM server certificate
+
+%OPENSSL% genrsa -passout pass:%PASSWD% -out %SVR_KEY% 2048
+%OPENSSL% req -passin pass:%PASSWD% -subj %SUBJ% -config %INT_CNF% -key %SVR_KEY% -new -sha256 -out 
+%OPENSSL% ca -batch  -config %INT_CNF% -extensions server_cert -days %DAYS% -notext -md sha256 -in %SVR_CSR% -out %SVR_CRT%
+
+REM verify it
+REM openssl x509 -noout -text -in intermediate/certs/s.cert.pem
+
