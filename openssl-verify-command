@@ -1,0 +1,3 @@
+
+ openssl verify -verbose -CAfile cacert.pem  server.crt
+ 
