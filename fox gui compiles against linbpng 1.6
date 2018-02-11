@@ -1,0 +1,12 @@
+
+fox gui compiles against linbpng 1.6
+
+--------------------------
+In the latest releases, 1.5 and newer, the png library disabled direct
+access to its structure members. One is supposed to use the accessor
+functions now.
+The attached patch (against 2.1, but seems to be still needed looking at the online repository a few minutes ago) fixes the issue.
+--------------------------
+
+code change--->
+png_ptr->jmpbuf -> png_jmpbuf(png_ptr)
