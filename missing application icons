@@ -1,0 +1,7 @@
+
+modify or create a {appname}.destktop file for the application
+
+check Icons={} correctly points to the icon file
+
+install application's icons to /usr/share/icons/hicolor/{48x48,32x32...}
+
