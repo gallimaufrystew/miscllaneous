@@ -1,0 +1,7 @@
+
+
+make sure sddm.conf is properly configured
+
+as the time of writing,the newerest sddm fails to launch session
+
+kde's user management depends on installed accountservice to work
