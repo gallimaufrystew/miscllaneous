@@ -1,0 +1,6 @@
+
+
+dolphin depends on phonob-vlc-backend to do the job 
+   --> reinstalling phonon-vlc-backend makes dolphin's confirmation to work
+   
+kio-extras is always needed for Dolphin previews, this is mentioned in my answer.
