@@ -1,0 +1,10 @@
+
+tar xf LibreOffice_6.0.1_Linux_x86-64_deb.tar.gz
+
+cd LibreOffice_6.0.1.1_Linux_x86-64_deb/DEBS/
+
+for i in $(ls) ; do
+   ar x $i data.tar.gz
+   tar xf data.tar.gz -C ../../
+   rm data.tar.gz
+done
