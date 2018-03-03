@@ -1,0 +1,5 @@
+
+error: xdg-desktop-menu: No writable system menu directory found.
+
+I found I could get round it by doing
+sudo mkdir /usr/share/desktop-directories/
