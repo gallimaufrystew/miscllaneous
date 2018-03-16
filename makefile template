@@ -1,0 +1,36 @@
+
+STRIP     = strip
+TARGET    = svr_102k
+CC        = gcc
+CCC       = g++ -g
+C_SRC     = 
+CPP_SRC   = $(wildcard *.cpp)
+CPP_OBJ   = $(patsubst %.cpp, %.o, $(CPP_SRC))
+
+deps      = $(patsubst %.o,%.d,$(CPP_OBJ))
+INCL      = -I /usr/local/ssl/include 
+CFLAGS    = -O2 -Wall -Werror
+CCCFLAGS  = -c -O2 -Wall
+LDIR      = -L /usr/local/ssl/lib/ 
+LIBS      = -lssl -lcrypto -ldl
+
+.PHONY:clean
+
+all:$(TARGET)
+
+$(TARGET):$(CPP_OBJ) $(deps)
+	$(CXX) $(C_OBJ) $(CPP_OBJ) -o $@ $(LDIR) $(LIBS)
+	$(STRIP) $(TARGET)
+	mv svr_102k ../uhuxk
+	
+%.o:%.c
+	$(CC) $(INCL) $(CFLAGS) $< -o $@
+%.d:%.cpp
+	$(CCC) $(INCL) -MM $(CCCFLAGS) $< > $@
+%.o:%.cpp
+	$(CCC) $(INCL) $(CCCFLAGS) $< -o $@
+
+clean:
+	rm -f $(C_OBJ) $(CPP_OBJ) $(deps) $(TARGET)
+	
+-include $(deps)
