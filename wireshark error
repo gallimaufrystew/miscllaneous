@@ -1,0 +1,16 @@
+bash-3.2# xhost +
+No protocol specified
+xhost:  unable to open display ":0.0"
+bash-3.2# xhost +localhost
+No protocol specified
+xhost:  unable to open display ":0.0"
+bash-3.2# xhost + localhost
+No protocol specified
+xhost:  unable to open display ":0.0"
+bash-3.2# hostname
+myhost
+bash-3.2# xhost + myhost
+No protocol specified
+xhost:  unable to open display ":0.0"
+bash-3.2# export XAUTHORITY=/home/mooreted/.Xauthority 
+bash-3.2# wireshark
