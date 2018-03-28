@@ -1,0 +1,45 @@
+
+cmake_minimum_required(VERSION 2.6)
+
+project(backend)
+
+include_directories(. "C:/openssl-110/include" "E:/boost_1660")
+
+set(WIN_VER 0x0601)
+
+add_definitions(-D_WIN32_WINNT=${WIN_VER})
+
+# Source files to be used in the library
+file (GLOB app_SOURCES *.cc)
+
+set(OPENSSL_ROOT_DIR "C:/openssl-110")
+
+set(Boost_NO_SYSTEM_PATHS ON) 
+set(Boost_USE_STATIC_LIBS ON)
+
+if (Boost_NO_SYSTEM_PATHS)
+  set(BOOST_ROOT "E:/boost_1660")
+  set(Boost_INCLUDE_DIRS "${BOOST_ROOT}/")
+  set(Boost_LIBRARY_DIRS "${BOOST_ROOT}/stage/lib")
+endif ()
+
+#find_library(ssl_110_LIBS NAMES ssl PATHS C:/openssl-110/lib)
+#find_library(crypto_110_LIBS NAMES crypto PATHS C:/openssl-110/lib)
+#find_library(boost_system_LIBS NAMES boost_system PATHS E:/boost_1660/stage/lib)
+
+find_package(OpenSSL)
+
+find_package(Boost 1.66.0 REQUIRED COMPONENTS system date_time regex) 
+
+if (OPENSSL_FOUND AND Boost_FOUND)
+    include_directories(${boost_INCLUDE_DIRS})
+	add_executable(backend ${app_SOURCES})
+	target_link_libraries(backend ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES})
+else ()
+	if (NOT OPENSSL_FOUND)
+	    message(SEND_ERROR "no OpenSSL library installed")
+	elseif (NOT Boost_FOUND)
+	    message(SEND_ERROR "no boost library installed")
+	endif()
+endif()
+
