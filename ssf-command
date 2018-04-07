@@ -1,0 +1,6 @@
+
+
+./ssfd -p 4433 -S
+
+./ssf -L 1031:localhost:5555 -L 1032:localhost:6666  -p 4433 localhost -v trace -S
+
