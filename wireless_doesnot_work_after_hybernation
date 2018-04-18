@@ -11,7 +11,7 @@ and then load it again (modprobe rtlwifi8192se)
 
 everything is ok...
 
-i don't know if compiling wireless module into kernel 
-can fixed this issue...
+i don't know whether compiling wireless module into kernel 
+can fix this issue or not...
 
 
