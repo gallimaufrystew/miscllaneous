@@ -1,0 +1,19 @@
+
+https://www.freebsd.org/doc/handbook/disk-organization.html
+
+Drive Type	Drive Device Name
+SATA and IDE hard drives	ada or ad
+SCSI hard drives and USB storage devices	da
+SATA and IDE CD-ROM drives	cd or acd
+SCSI CD-ROM drives	cd
+Floppy drives	fd
+Assorted non-standard CD-ROM drives	mcd for Mitsumi CD-ROM and scd for Sony CD-ROM devices
+SCSI tape drives	sa
+IDE tape drives	ast
+RAID drives	Examples include 
+aacd for Adaptec® AdvancedRAID, 
+mlxd and mlyd for Mylex®, 
+amrd for AMI MegaRAID®, 
+idad for Compaq Smart RAID, 
+twed for 3ware® RAID.
+
